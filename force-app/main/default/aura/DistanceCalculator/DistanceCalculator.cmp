@@ -1,0 +1,31 @@
+<aura:component controller="DistanceCalculator" >
+    <aura:attribute name="source" type="String" />
+    <aura:attribute name="destination" type="String" />
+    <aura:attribute name="mapMarkers" type="Object"/>
+    <aura:attribute name="markersTitle" type="String" />
+    <aura:attribute name="distance" type="String" />
+    <aura:attribute name="listView" type="String" default="hidden"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <h1>Enter Source and Destination Address :-</h1>
+   
+    <!-- For Source Input-->
+    <h1 class="source">Source Address</h1>
+    <div class="slds-col slds-size_5-of-12">
+        <lightning:input name="city" value="{!v.source}" />
+    </div>
+    
+    <!-- For Destination Input-->
+    <h1 class="destination">Destination Address</h1>
+    <div class="slds-col slds-size_5-of-12">
+        <lightning:input name="city" value="{!v.destination}" />
+    </div>
+    
+    <!-- Submit Button -->
+    <lightning:button variant="brand" label="Submit" title="Submit" onclick="{! c.calculateDistance }" />
+    
+    <!-- For Lighnting Map -->
+    <lightning:map mapMarkers="{! v.mapMarkers }" listView="{!v.listView}"/>
+    
+    <h1>Distance :- {!v.distance}</h1>
+</aura:component>
